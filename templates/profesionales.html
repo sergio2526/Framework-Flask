@@ -1,0 +1,6 @@
+<ul>
+    {% for ingeniero in nombres_ingenieros%}
+        <li>{{ingeniero}}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for ('index')}}">Ir al inicio</a>
