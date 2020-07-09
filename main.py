@@ -1,6 +1,13 @@
-from flask import Flask, request, Response, make_response, redirect , render_template, abort
+from flask import Flask, request, Response, make_response, \
+redirect , render_template, abort, session
+
+from flask_bootstrap import Bootstrap
+
 
 app = Flask(__name__)
+app.config['ENV']='development'
+app.config['SECRET_KEY'] = 'SUPER SECRETO' # gererar sessión en flask
+bootstrap = Bootstrap(app)
 
 todos = ['Leer', 'Platzi', 'Actividades','GCP']
 
@@ -17,12 +24,12 @@ def server_error(error):
 def index():
     user_ip = request.remote_addr
     response = make_response(redirect('/hello'))
-    response.set_cookie('user_ip', user_ip)
+    session['user_ip'] = user_ip
     return response
 
 @app.route('/hello')
 def hello():
-    user_ip = request.cookies.get('user_ip')
+    user_ip = session.get('user_ip')
     context = {
         'user_ip':user_ip,
         'todos':todos
