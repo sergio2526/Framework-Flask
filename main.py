@@ -1,5 +1,4 @@
-from flask import Flask, request, Response, make_response, \
-redirect , render_template, abort, session
+from flask import Flask, request, Response, make_response, redirect , render_template, abort, session
 
 from flask_bootstrap import Bootstrap
 
@@ -9,7 +8,7 @@ app.config['ENV']='development'
 app.config['SECRET_KEY'] = 'SUPER SECRETO' # gererar sessión en flask
 bootstrap = Bootstrap(app)
 
-todos = ['Leer', 'Platzi', 'Actividades','GCP']
+todos = ['Leer2', 'Platzi', 'Actividades2','GCP']
 
 @app.errorhandler(404)
 def not_found(error):
