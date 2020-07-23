@@ -1,5 +1,3 @@
-import os
-os.environ ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/sergio/Descargas/platzi-flask-cf08b9938f0e.json"
 
 import firebase_admin
 from firebase_admin import credentials
